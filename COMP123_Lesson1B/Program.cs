@@ -13,7 +13,7 @@ using System.Threading.Tasks;
  * Description : This program demonstrates GitHub and version control 
  * best practice. We also explore Unit Testing
  * 
- * Version : 0.3 - Updated comments for driver class Program
+ * Version : 0.4 - Extracted OutputStringToConsole from GetUserName method
  */
 namespace COMP123_Lesson1B
 {
@@ -46,13 +46,36 @@ namespace COMP123_Lesson1B
             //Initialize variables
             string UserName = "";
 
-            Console.Write("Enter UserName: ");
+            OutputStringToConsole("Enter UserName: ", false);
             UserName = Console.ReadLine();
-            Console.WriteLine("\n=======================");
-            Console.WriteLine("You entered: " + UserName);
+
+            Console.WriteLine("\n=======================\n");
+            Console.WriteLine("You entered: " + UserName+ "\n");
 
             return UserName;
 
+        }
+        /**
+         * This method writes a string to the console. Parameters allow the user to
+         * choose to add a newLine character
+         * 
+         * @method OutputStringToConsole
+         * @param {string} outputString
+         * @param {bool} hasNewLine
+         * @return {string} outputString 
+         */
+        private static string OutputStringToConsole(string outputString, bool hasNewLine)
+        {
+            if (hasNewLine)
+            {
+                Console.WriteLine(outputString);
+            }
+            else
+            {
+                Console.Write(outputString);
+            }
+
+            return outputString;
         }
     }
 }
